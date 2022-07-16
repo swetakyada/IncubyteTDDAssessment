@@ -19,7 +19,8 @@ def add(numbers) :
     for num in nums : 
         if num < 0 :
             neg_nums.append(num)
-        sum += num
+        if num <= 1000 :
+            sum += num
     try :
         if len(neg_nums) > 0 :
             neg_list = ','.join(str(x) for x in neg_nums)
@@ -39,8 +40,8 @@ def test_string_calculator() :
     assert(add("1,-2,3") == "Negatives not allowed : -2")
     assert(add("1,-2\n3,-4") == "Negatives not allowed : -2,-4")
     assert(add("//;\n1;-2;3;4;-5") == "Negatives not allowed : -2,-5")
-    # assert(add("2,1000") == 1002)
-    # assert(add("2,1001") == 2)
+    assert(add("2,1000") == 1002)
+    assert(add("2,1001") == 2)
     # assert(add("//[***]\n1***2***3") == 6)
     # assert(add("//[*][%]\n1*2%3") == 6)
 
